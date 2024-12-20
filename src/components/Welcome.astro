@@ -46,33 +46,39 @@
 		justify-content: center;
 		align-items: center;
 		overflow-x: hidden;
+		min-height: 100vh !important; /* Asegura que siempre llene la pantalla */
 	}
 
 	.container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
+		justify-content: center;
 		gap: 20px;
 		width: 100%;
 		max-width: 1200px;
-		min-width: 400px;
 		padding: 20px;
+		min-height: 100vh; /* Asegura que llene toda la pantalla */
+		box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+		overflow: hidden; /* Evita desbordes del contenido */
+		margin-top: 20px;
 	}
 
 	.logo {
-		max-width: 520px;
-		height: auto;
+		width: 100%; /* Ajusta el ancho del logo al contenedor */
+		max-width: 300px; /* Define un tamaño máximo para pantallas grandes */
+		height: auto; /* Mantiene la proporción original del logo */
+		object-fit: contain; /* Asegura que el logo nunca se recorte */
 	}
 
 	.header {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 10px;
-		max-width: 520px;
-		justify-content: center;
 		text-align: center;
+		gap: 10px;
+		width: 100%;
+		max-width: 520px; /* Controla el ancho máximo del contenido */
 	}
 
 	.header h1 {
@@ -127,6 +133,16 @@
 
 		.header {
 			align-items: center;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.logo {
+			max-width: 250px; /* Reduce ligeramente el tamaño máximo en móviles */
+		}
+
+		.container {
+			padding: 15px; /* Asegura que haya espacio en los bordes */
 		}
 	}
 </style>
